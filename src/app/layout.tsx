@@ -3,6 +3,7 @@ import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import {jaJP}  from "@clerk/localizations";
+import { TRPCProvider } from "@/trpc/client";
 
 const font = Noto_Sans_JP({ subsets: ["latin"] });
 
@@ -19,7 +20,11 @@ export default function RootLayout({
   return (
     <ClerkProvider afterSignOutUrl="/" localization={jaJP}>
       <html lang="ja">
-        <body className={font.className}>{children}</body>
+        <body className={font.className}>
+          <TRPCProvider>
+          {children}
+          </TRPCProvider>
+          </body>
       </html>
     </ClerkProvider>
   );
