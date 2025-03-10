@@ -1,6 +1,7 @@
 import { HomeLayout } from "@/modules/home/ui/layouts/home-layout";
 
 
+
 interface LayoutPros{
   children:React.ReactNode;
 }
